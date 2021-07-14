@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OBS</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+	<header id="main-header">
+		<div class="container">
+			<h1>ÖĞRENCİ BİLGİ SİSTEMİ</h1>
+		</div>
+	</header> 
+
+	<div class="student_container">
+		<div id="student1">
+			<p> <b>Ad-Soyad:</b> Muhammed Bayram</p>
+			<p id="student1_id"> <b>ID:</b> 17050111003</p>
+			<p> <b>Bölüm:</b> Bilgisayar Mühendisliği</p>	
+			<p> <b>Sınıf:</b> 4. Sınıf</p>
+			<button id="student1_button">Detaylar</button>
+		</div>
+
+		<div id="student2">
+			<p> <b>Ad-Soyad:</b> Ahmet Kalem</p>
+			<p> <b>ID:</b> 18050111004</p>
+			<p> <b>Bölüm:</b> Elektrik Elektronik Mühendisliği</p>
+			<p> <b>Sınıf:</b> 3. Sınıf</p>	
+			<button id="student2_button">Detaylar</button>
+		</div>
+
+		<div id="student3">
+			<p> <b>Ad-Soyad:</b> Ece Tosun</p>
+			<p> <b>ID:</b> 19050111005</p>
+			<p> <b>Bölüm:</b> Endüstri Mühendisliği</p>			
+			<p> <b>Sınıf:</b> 2. Sınıf</p>
+			<button id="student3_button">Detaylar</button>
+		</div>
+
+	</div>
+
+	
+	<footer id="main-footer">
+		<p>Copyright &copy; 2021 Figensoft</p>
+	</footer>
+
+
+	<script>
+		
+		if($){
+
+			$(document).ready(()=>{
+
+				$('#student1_button').on('click',(e)=>{
+					var id=17050111003;
+					localStorage.setItem("id_value",id);
+					window.location.href="index2.html"
+				});
+
+				$('#student2_button').on('click',(e)=>{
+					var id=18050111004;
+					localStorage.setItem("id_value",id);
+					window.location.href="index2.html"
+				});
+
+				$('#student3_button').on('click',(e)=>{
+					var id=19050111005;
+					localStorage.setItem("id_value",id);
+					window.location.href="index2.html"
+				});
+			})
+		}
+
+		else{
+			
+			var btnClick_1 = document.getElementById(student1_button);
+			btnClick_1.addEventListener('onclick',(e)=>{
+				var id=17050111003;
+					localStorage.setItem("id_value",id);
+					window.location.href="index2.html"
+			});
+
+			var btnClick_2 = document.getElementById(student2_button);
+			btnClick_2.addEventListener('onclick',(e)=>{
+				var id=18050111004;
+					localStorage.setItem("id_value",id);
+					window.location.href="index2.html"
+			});
+
+			var btnClick_3 = document.getElementById(student3_button);
+			btnClick_3.addEventListener('onclick',(e)=>{
+				var id=19050111005;
+				localStorage.setItem("id_value",id);
+				window.location.href="index2.html"
+			});
+		}
+	</script>
+
+</body>
+</html>

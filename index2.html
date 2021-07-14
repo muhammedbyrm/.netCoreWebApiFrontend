@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OBS</title>
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+	<header id="main-header">
+		<div class="container">
+			<h1>ÖĞRENCİ BİLGİ SİSTEMİ</h1>
+		</div>
+	</header> 
+
+	<div class="main_container">
+
+		<br>
+
+        <div id="course">
+			<p id="course_name"> <b>Ders:</b> </p>
+			<p id="credit"> <b>Kredi Sayısı:</b> </p>
+			<p id="not"> <b>Harf Notu:</b> </p>	
+		</div>
+		
+		<br>
+		<br>
+		
+		<div id="information">
+			<p id="name"> <b>Ad-Soyad:</b> </p>
+			<p id="studentID"> <b>ID:</b> </p>
+			<p id="bölüm"> <b>Bölüm:</b> </p>	
+			<p id="sınıf"> <b>Sınıf:</b> </p>
+            <p id="gno"> <b>GNO:</b> </p>
+            <p id="agno"> <b>AGNO:</b> </p>
+		</div>
+
+		<br>
+		<br>
+		
+		<button id="goback">Ana Sayfa</button> 
+	</div>
+	
+ <footer id="main-footer">
+		<p>Copyright &copy; 2021 Figensoft</p>
+	</footer>
+   
+
+	<script>	
+		if($){
+			
+
+			$(document).ready(()=>{
+                
+                var id=localStorage.getItem("id_value");
+                    
+               $.ajax({
+				method:'GET',
+				url: 'https://localhost:44308/Students/'+id,
+				dataType: 'json'
+			    }).done(function(data){ 
+                     console.log(data);
+                     $('#name').append(data.student_Name);
+                     $('#studentID').append(data.student_Id);
+                     $('#bölüm').append(data.student_Department);
+                     $('#sınıf').append(data.student_Year); 
+                     $('#gno').append(data.gpa); 
+                     $('#agno').append(data.cgpa);
+                     
+                     $('#course_name').append(data.course_Name); 
+                     $('#credit').append(data.course_Credit); 
+                     $('#not').append(data.course_Grade);	
+			    }); 
+
+				
+
+				$('#goback').on('click',(e)=>{
+					window.location.href="index.html"		
+				});
+			})   
+		}
+
+		else{
+			alert('There is a problem with AJAX, please be sure about that you include ajax script in the head of the html.');	
+
+			var btnClick_1 = document.getElementById(goback);
+			btnClick_1.addEventListener('onclick',(e)=>{
+				window.location.href="index.html"
+			});
+		}
+
+  	</script>
+
+</body>
+</html>
